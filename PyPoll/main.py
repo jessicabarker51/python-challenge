@@ -38,3 +38,15 @@ for candidate in candidate_votes:
 print("-------------------------")
 print(f"Winner: {winner}")
 print("-------------------------")
+
+# Export the results to a text file
+with open('election_results.txt', 'w') as file:
+    file.write("Election Results\n")
+    file.write("-------------------------\n")
+    file.write(f"Total Votes: {total_votes}\n")
+    file.write("-------------------------\n")
+    for candidate in candidate_votes:
+        file.write(f"{candidate}: {candidate_percentages[candidate]:.3f}% ({candidate_votes[candidate]})\n")
+    file.write("-------------------------\n")
+    file.write(f"Winner: {winner}\n")
+    file.write("-------------------------\n")

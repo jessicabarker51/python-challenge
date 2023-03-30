@@ -1,7 +1,7 @@
 import os
 import csv
 
-# Path to collectio data from the Resources folder
+# Path to collection data from the Resources folder
 budget_data = os.path.join("Resources","budget_data.csv")
 
 print(budget_data)      
@@ -71,7 +71,16 @@ with open(budget_data, "r") as csvfile:
 print("total", total)
 
 #Calculate the change in profit /loss
-avg_net_change = sum(net_change_list) / len(net_change_list)        
+avg_net_change = sum(net_change_list) / len(net_change_list) 
+
+#Open the output file and write the results
+with open("output.txt", "w") as txtfile:
+   txtfile.write("total months:" + str(total_months))
+   txtfile.write("total change: $" + str(net_change))
+   txtfile.write("average change: $" + str(round(avg_net_change, 2)))
+   txtfile.write("greatest increase in profits: " + greatest_increase_date + " ($" + str(greatest_increase) + ")")
+   txtfile.write("greatest decrease in profits: " + greatest_decrease_date + " ($" + str(greatest_decrease) + ")")
+
 print("total months:" + str(total_months))
 print("total change: $" + str(net_change))
 print("average change: $" + str(round(avg_net_change, 2)))
